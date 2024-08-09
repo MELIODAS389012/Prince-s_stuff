@@ -1,0 +1,20 @@
+name: chocolatine
+
+on:
+push:
+  branches-ignore:
+      - ga-ignore-*
+env:
+  MIRROR_URL: https://github.com/EpitechPromo2028/B-DOP-200-COT-2-2-chocolatine-prince.goudayi.git
+
+jobs:
+check_coding_style:
+    runs-on: ubuntu-latest
+    image: ghcr.io/epitech/coding-style-checker:latest
+    steps:
+      - name: Check the repo
+        uses: actions/checkout@v4
+      - name: Display coding-style-reports.log
+         run: check.sh $(pwd) $(pwd)
+      - name: display
+        run: cat coding-style-reports.log
